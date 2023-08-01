@@ -1,0 +1,30 @@
+#!/bin/bash
+##############################################
+##### Some variables
+###########
+nv=$(find /home/ -type f -name "NVIDIA*.run");
+disabled_nouveau=$(grubby ––update-kernel=ALL ––args="rd.driver.blacklist=nouveau nouveau.modeset=0");
+##############################################
+######
+
+echo "------------------------------------------------------------------------------------------";
+echo "-----    Installing Nvidia Driver";
+echo "------------------------------------------------------------------------------------------";
+chmod +x "$nv";
+sudo sh -c "$nv";
+echo "------------------------------------------------------------------------------------------";
+echo "-----     Add Nouveau to black list";
+sudo sh -c 'echo "blacklist nouveau" >> /etc/modprobe.d/blacklist.conf';
+echo "-----     Remove nouveau driver";
+sudo sh -c 'dnf remove -y xorg-x11-drv-nouveau';
+echo "-----     Update grub config file";
+sudo sh -c "$disabled_nouveau";
+echo "-----     Make Grub ";
+sudo sh -c 'grub2-mkconfig -o /boot/grub2/grub.cfg';
+echo "-----     Create Bakups";
+sudo sh -c 'mv -v /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r)-nouveau.img';
+echo "-----     Make New Grub Img";
+sudo sh -c 'dracut /boot/initramfs-$(uname -r).img $(uname -r)';
+echo "-----     Setup default grafphical target";
+sudo sh -c 'systemctl set-default graphical.target';
+echo "-----     Update Destop DB";
