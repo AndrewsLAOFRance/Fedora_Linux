@@ -1,0 +1,26 @@
+#!/bin/bash
+
+echo "";
+echo "--------------------------------------------------------------------------------------------";
+echo "--->    Setup Some values to the Gsettings";
+echo "--------------------------------------------------------------------------------------------";
+gsettings set org.gnome.shell disable-extension-version-validation true;
+gsettings get org.gnome.shell disable-extension-version-validation;
+echo "-----------";
+gsettings set org.gnome.desktop.wm.preferences button-layout "appmenu:minimize,maximize,close";
+gsettings get org.gnome.desktop.wm.preferences button-layout;
+echo "-----------";
+gsettings set org.gnome.desktop.privacy remember-recent-files false;
+gsettings get org.gnome.desktop.privacy remember-recent-files;
+echo "-----------";
+gsettings set org.gnome.mutter workspaces-only-on-primary false;
+gsettings get org.gnome.mutter workspaces-only-on-primary;
+echo "-----------";
+gsettings set org.gnome.mutter draggable-border-width 2
+gsettings get org.gnome.mutter draggable-border-width;
+echo "-----------";
+rm -rf .local/share/recently-used.xbel;
+ls -la  .local/share/;
+echo "-----------";
+os-up 
+db-up;
