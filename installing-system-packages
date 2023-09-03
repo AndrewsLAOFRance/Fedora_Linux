@@ -129,5 +129,5 @@ echo "--------------------------------------------------------------------------
 echo "---- Installing Openai";
 pip install openai; 
 echo "-----------------------------------------------------------------------------------------------------------------------";
-git config --global user.name=AndrewsLAOFRance;
+git config --global user.name="AndrewsLAOFRance";
 git config --global user.email="strelec8.2.1.lao@gmail.com";
