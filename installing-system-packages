@@ -1,91 +1,73 @@
 #!/bin/bash
 
+install_kde_packages(){
+     sudo dnf install -y rpmconf rpm-build dnf-{data,utils} dnf-plugins-core remove-retired-packages fedora-upgrade java-latest-openjdk tlp-rdw iftop info \
+          yamllint openssl google-chrome-stable paper-icon-theme papirus-icon-theme samba python3-pip python3-boto3 python3-boto 2to3 acpid \
+          pop-icon-theme la-capitaine-cursor-theme sweet-gtk-theme deepin-sound-theme oxygen-cursor-themes xcb-util-cursor lumina-icons \
+          levien-inconsolata-fonts arc-theme breeze-cursor-theme comic\* intel-clear-sans-fonts msimonson-anonymouspro-fonts \
+          fira-code-fonts thai-scalable-tlwgmono-fonts thai-arundina-sans-mono-fonts redhat-mono-fonts polarsys-b612-mono-fonts texlive-gofonts \
+          texlive-inconsolata texlive-typewriter google-roboto-mono-fonts jetbrains-mono-fonts-all oflb-smonohand-fonts mozilla-fira-mono-fonts \
+          liberation-mono-fonts bitstream-vera-sans-mono-fonts vim-syntastic-tex\* vim-syntastic-vim vim-trailing-whitespace vim-syntastic-yaml \
+          vim-syntastic-perl\* vim-syntastic-ocaml vim-syntastic-sh vim-syntastic-json vim-syntastic vim-syntastic-asciidoc vim-syntastic-ansible git-all \
+          vim-perl-support  vim-powerline vim-merlin vim-editorconfig vim-command-t vim-gtk-syntax vim-devicons vim-X11 vim-airline vim-ctrlp vim-mediawiki \
+          appstream\* autoconf automake akmods make cmake git-all python3-dnf-plugins-core gh nodejs npm mc nmap envytools drm-utils gcc gcc-c++ \
+          GeoIP python3.12 nvme-cli flatpak\* screenfetch screen xml2 svn csv kernel-headers kernel-devel ocaml ocaml-ssl-devel ca-certificates awscli \
+          cascadia\* marked sddm-x11 sddm-themes dkms tpm2-tools sysconftool nvme-cli ansible\* driverctl wicked docker docker-compose code \
+          xorg-x11-xtrans-devel xorg-x11-server-source xorg-x11-proto-devel xorg-x11-server-common xorg-x11-font-utils xorg-x11-fonts-Type1 \
+          xorg-x11-fonts-misc xorg-x11-drv-intel xorg-x11-server-Xorg xrandr xca x509\* lm_sensors htop hwinfo vdpauinfo  lua-libs lua-json lua-libs biosdevname \
+          busybox qt5-qtdoc qt5-rpm-macros qt5-qtxmlpatterns qt5-qtwebview qt5-qtwebsockets qt5-qtx11extras qt5-qtscxml qt5-qtdeclarative qt5-qtquickcontrols \
+          qt5-qtserialbus qt5-qtcharts qt5-qtquickcontrols2 qt5-qttools-static qt5-qttools-libs-designer qt5-qtstyleplugins qt5-qttools \
+          qt5-qttools-libs-designercomponents qt5-qtbase qt5-qt3d qt5ct qt5-designer qt5-qtscxml qt5-qtremoteobjects qt5-qttools-static qt5-qtsvg \
+          qt5-qtstyleplugins qt5-qtbase-common qt5-qtbase-static qt5-qtscxml qt5-qtpbfimageformat qt5-qtimageformats qt5-qtgraphicaleffects qt5-qtconfiguration \
+          kde-partitionmanager kdenlive kde-workspace-devel kdewebdev-libs kde-wallpapers kdevelop\* kde-gtk-config kde-style-breeze \
+          kdesvn  kde-runtime\* kdelibs-ktexteditor kdelibs-webkit kde-plasma-ihatethecashew kdeplasma-addons-devel kde-platform-plugin \
+          kdegraphics-mobipocket-devel kdelibs\* kdenetwork-filesharing kdeplasma-addons\* kde-dev-utils\* kdecoration\* kde-cli-tools kde-dev-scripts \
+          kdebugsettings kdeplasma-addons kde-baseapps-common kde-apps-rpm-macros \
+          plasma-workspace-libs plasma-workspace-x11 plasma-milou plasma-wallpapers-dynamic plasmatube plasma-mediacenter \
+          plasma-lookandfeel-fedora plasma-integration plasma-drkonqi plasma-discover-libs plasma-discover-packagekit plasma-discover-offline-updates \
+          plasma-discover-flatpak plasma-desktop plasma-applet-weather-widget plasma-oxygen plasma-discover-notifier plasma-discover-offline-updates \
+          plasma-desktop-kimpanel-scim plasma-browser-integration plasma-breeze\*;
+}
+install_gnome_packages(){
+     sudo dnf install -y --best rpmconf rpm-build dnf-{data,utils} dnf-plugins-core remove-retired-packages fedora-upgrade \
+     	appstream\* autoconf automake akmods make cmake git-{all,core} 2to3 python3-{pip,boto3,boto} python3-dnf-plugins-core \
+     	python3-dnf-plugin-system-upgrade openssl openssl-devel ocaml ocaml-ssl-devel ca-certificates glib2\* acpi acpid wicked \
+     	gstreamer-plugins-espeak gstreamer1-plugins-base gstreamer1-plugins-good-extras  gstreamer1-plugins-good-gtk gstreamer-plugin-crystalhd \
+     	gstreamer1-plugins-good-extras gstreamer1-plugins-good-gtk yaml-cpp yamllint gimp gparted jq-devel ImageMagick ImageMagick-libs p7zip \
+     	unzip tar unrar gzip java-latest-openjdk tlp-rdw iftop info gtk4\* colord colordiff colord-libs colord-gtk-devel colord-gtk4\* \
+     	biosdevname busybox bleachbit dkms tpm2-tools sysconftool json-{parser,table,glib} pkgconf gh nodejs npm mc nmap GeoIP python3.12 \
+     	lua-libs lua-json lua-libs gedit google-chrome-stable xorg-x11-util-macros xorg-x11-xbitmaps xorg-x11-xinit-session tlp-rdw iftop info gtk4* \
+     	xorg-x11-xtrans-devel xorg-x11-server-source xorg-x11-proto-devel xorg-x11-server-common xorg-x11-font-utils xorg-x11-fonts-Type1 \
+     	xorg-x11-fonts-misc xorg-x11-drv-intel xorg-x11-server-Xorg xrandr xca x509\* lm_sensors htop hwinfo vdpauinfo gtkimageview-devel gtkmm4.0 openjfx \
+     	envytools drm-utils gcc gcc-c++ gjs\* python3-gobject\* nvme-cli flatpak\* screenfetch screen xml2 svn csv kernel-headers kernel-devel \
+     	gtksourceview4 gtksourceview5 GtkAda gtk4-devel-tools gtk-xfce-engine webkitgtk6.0\* webkit2gtk4.1\* ansible\* docker docker-compose code \
+          gnome-panel\* gnome-shell-extension-user-theme  gnome-shell-extension-screenshot-window-sizer gnome-themes-extra gnome-pkg-tools \
+     	gnome-settings-daemon-devel xfdashboard-themes gnome-music gnome-multi-writer gnome-monitor-config gnome-console \
+     	gnome-builder\* gnome-colors-icon-theme gnome-control-center\* gnome-extensions-app gnome-firmware gnome-icon-theme gnome-control-center \
+     	gnome-js\* gnome-multi-writer gnome-software gnome-software-devel gnome-tweaks gnome-doc-utils\*  gnome-control-center-filesystem  \
+     	gnome-shell-extension-drive-menu gnome-shell-extension-blur-my-shell gnome-backgrounds-extras gnome-online-accounts gnome-firmware gnome-sharp* \
+          paper-icon-theme papirus-icon-theme pop-icon-theme la-capitaine-cursor-theme sweet-gtk-theme deepin-sound-theme \
+     	oxygen-cursor-themes xcb-util-cursor lumina-icons levien-inconsolata-fonts arc-theme breeze-cursor-theme gnome-packagekit\* \
+     	comic\* intel-clear-sans-fonts msimonson-anonymouspro-fonts fira-code-fonts thai-scalable-tlwgmono-fonts thai-arundina-sans-mono-fonts \
+     	redhat-mono-fonts polarsys-b612-mono-fonts texlive-gofonts texlive-inconsolata texlive-typewriter google-roboto-mono-fonts \
+     	jetbrains-mono-fonts-all oflb-smonohand-fonts mozilla-fira-mono-fonts liberation-mono-fonts bitstream-vera-sans-mono-fonts google-go-mono-fonts \
+          vim-syntastic-vim vim-trailing-whitespace vim-syntastic-yaml vim-syntastic-perl\* \
+     	vim-syntastic-ocaml vim-syntastic-sh vim-syntastic-json vim-syntastic vim-syntastic-asciidoc vim-syntastic-ansible vim-perl-support \
+     	vim-powerline vim-merlin vim-editorconfig vim-command-t vim-gtk-syntax vim-devicons vim-X11 vim-airline vim-ctrlp vim-mediawiki;
+}
 if [ "$XDG_CURRENT_DESKTOP" == "KDE" ]
 then
      echo "================================================================================================================================================";
      echo "=====================================================    Instal Systems Packages Tools    ======================================================";
-     sudo dnf install -y rpmconf rpm-build dnf-{data,utils} dnf-plugins-core remove-retired-packages fedora-upgrade java-latest-openjdk tlp-rdw iftop info \
-          yamllint openssl google-chrome-stable paper-icon-theme papirus-icon-theme samba python3-{pip,boto3,boto} 2to3 acpid \
-          pop-icon-theme la-capitaine-cursor-theme sweet-gtk-theme deepin-sound-theme oxygen-cursor-themes xcb-util-cursor lumina-icons \
-          levien-inconsolata-fonts arc-theme breeze-cursor-theme comic* intel-clear-sans-fonts msimonson-anonymouspro-fonts \
-          fira-code-fonts thai-scalable-tlwgmono-fonts thai-arundina-sans-mono-fonts redhat-mono-fonts polarsys-b612-mono-fonts texlive-gofonts \
-          texlive-inconsolata texlive-typewriter google-roboto-mono-fonts jetbrains-mono-fonts-all oflb-smonohand-fonts mozilla-fira-mono-fonts \
-          liberation-mono-fonts bitstream-vera-sans-mono-fonts vim-syntastic-tex* vim-syntastic-vim vim-trailing-whitespace vim-syntastic-yaml \
-          vim-syntastic-perl* vim-syntastic-ocaml vim-syntastic-sh vim-syntastic-json vim-syntastic vim-syntastic-asciidoc vim-syntastic-ansible git-all \
-          vim-perl-support  vim-powerline vim-merlin vim-editorconfig vim-command-t vim-gtk-syntax vim-devicons vim-X11 vim-airline vim-ctrlp vim-mediawiki \
-          appstream* autoconf automake akmods make cmake git-all python3-dnf-plugins-core gh nodejs npm mc nmap envytools drm-utils gcc gcc-c++ \
-          GeoIP python3.12 nvme-cli flatpak* screenfetch screen xml2 svn csv kernel-headers kernel-devel ocaml ocaml-ssl-devel ca-certificates awscli \
-          cascadia* marked sddm-x11 sddm-themes dkms tpm2-tools sysconftool nvme-cli ansible* driverctl wicked docker docker-compose code;
-     echo "================================================";
-     echo "================================================";
-     sudo dnf install -y xorg-x11-xtrans-devel xorg-x11-server-source xorg-x11-proto-devel xorg-x11-server-common xorg-x11-font-utils xorg-x11-fonts-Type1 \
-          xorg-x11-fonts-misc xorg-x11-drv-intel xorg-x11-server-Xorg xrandr xca x509* lm_sensors htop hwinfo vdpauinfo  lua-libs lua-json lua-libs biosdevname \
-          busybox qt5-qtdoc qt5-rpm-macros qt5-qtxmlpatterns qt5-qtwebview qt5-qtwebsockets qt5-qtx11extras qt5-qtscxml qt5-qtdeclarative qt5-qtquickcontrols \
-          qt5-qtserialbus qt5-qtcharts qt5-qtquickcontrols2 qt5-qttools-static qt5-qttools-libs-designer qt5-qtstyleplugins qt5-qttools \
-          qt5-qttools-libs-designercomponents qt5-qtbase qt5-qt3d qt5ct qt5-designer qt5-qtscxml qt5-qtremoteobjects qt5-qttools-static qt5-qtsvg \
-          qt5-qtstyleplugins qt5-qtbase-common qt5-qtbase-static qt5-qtscxml qt5-qtpbfimageformat qt5-qtimageformats qt5-qtgraphicaleffects qt5-qtconfiguration;
-     echo "================================================";
-     echo "================================================";
-     sudo dnf install -y --best intelhex intel-igc intel-cm-compiler intel-cm-compiler-libs intel-mediasdk intel-mediasdk-devel intel-cmt-cat;
-     echo "================================================";
-     echo "================================================";
-     sudo dnf install -y kde-partitionmanager kdenlive kde-workspace-devel kdewebdev-libs kde-wallpapers kdevelop\* kde-gtk-config kde-style-breeze \
-          kdesvn  kde-runtime\* kdelibs-ktexteditor kdelibs-webkit kde-plasma-ihatethecashew kdeplasma-addons-devel kde-platform-plugin \
-          kdegraphics-mobipocket-devel kdelibs\* kdenetwork-filesharing kdeplasma-addons\* kde-dev-utils\* kdecoration\* kde-cli-tools kde-dev-scripts \
-          kdebugsettings kdeplasma-addons kde-baseapps-common kde-apps-rpm-macros;
-     echo "================================================";
-     echo "================================================";
-     sudo dnf install -y plasma-workspace-libs plasma-workspace-x11 plasma-milou plasma-wallpapers-dynamic plasmatube plasma-mediacenter \
-          plasma-lookandfeel-fedora plasma-integration plasma-drkonqi plasma-discover-libs plasma-discover-packagekit plasma-discover-offline-updates \
-          plasma-discover-flatpak plasma-desktop plasma-applet-weather-widget plasma-oxygen plasma-discover-notifier plasma-discover-offline-updates \
-          plasma-desktop-kimpanel-scim plasma-browser-integration plasma-breeze\*;
-     echo "================================================";
+     echo "================================================================================================================================================";
+          install_kde_packages;
      echo "================================================";
 else
      echo '';
      echo '-----------------------------------------------------------------';
      echo '------------    Installing System Packages, Libs, Tools'
      echo '-----------------------------------------------------------------';
-     sudo dnf install -y --best rpmconf rpm-build dnf-{data,utils} dnf-plugins-core remove-retired-packages fedora-upgrade \
-     	appstream* autoconf automake akmods make cmake git-{all,core} 2to3 python3-{pip,boto3,boto} python3-dnf-plugins-core \
-     	python3-dnf-plugin-system-upgrade openssl openssl-devel ocaml ocaml-ssl-devel ca-certificates glib2* acpi acpid wicked \
-     	gstreamer-plugins-espeak gstreamer1-plugins-base gstreamer1-plugins-good-extras  gstreamer1-plugins-good-gtk gstreamer-plugin-crystalhd \
-     	gstreamer1-plugins-good-extras gstreamer1-plugins-good-gtk yaml-cpp yamllint gimp gparted jq-devel ImageMagick ImageMagick-libs p7zip \
-     	unzip tar unrar gzip java-latest-openjdk tlp-rdw iftop info gtk4* colord colordiff colord-libs colord-gtk-devel colord-gtk4* \
-     	biosdevname busybox bleachbit dkms tpm2-tools sysconftool json-{parser,table,glib} pkgconf gh nodejs npm mc nmap GeoIP python3.12 \
-     	lua-libs lua-json lua-libs gedit google-chrome-stable xorg-x11-util-macros xorg-x11-xbitmaps xorg-x11-xinit-session tlp-rdw iftop info gtk4* \
-     	xorg-x11-xtrans-devel xorg-x11-server-source xorg-x11-proto-devel xorg-x11-server-common xorg-x11-font-utils xorg-x11-fonts-Type1 \
-     	xorg-x11-fonts-misc xorg-x11-drv-intel xorg-x11-server-Xorg xrandr xca x509* lm_sensors htop hwinfo vdpauinfo gtkimageview-devel gtkmm4.0 openjfx \
-     	envytools drm-utils gcc gcc-c++ gjs* python3-gobject* nvme-cli flatpak* screenfetch screen xml2 svn csv kernel-headers kernel-devel \
-     	gtksourceview4 gtksourceview5 GtkAda gtk4-devel-tools gtk-xfce-engine webkitgtk6.0* webkit2gtk4.1* ansible* docker docker-compose code;
-     echo '------------    Installing Gnome Packages, Libs, Tools'
-     echo '-----------------------------------------------------------------';
-     sudo dnf install -y --best gnome-panel* gnome-shell-extension-user-theme  gnome-shell-extension-screenshot-window-sizer gnome-themes-extra gnome-pkg-tools \
-     	gnome-settings-daemon-devel xfdashboard-themes gnome-music gnome-multi-writer gnome-monitor-config gnome-console \
-     	gnome-builder* gnome-colors-icon-theme gnome-control-center* gnome-extensions-app gnome-firmware gnome-icon-theme gnome-control-center \
-     	gnome-js* gnome-multi-writer gnome-software gnome-software-devel gnome-tweaks gnome-doc-utils*  gnome-control-center-filesystem  \
-     	gnome-shell-extension-drive-menu gnome-shell-extension-blur-my-shell gnome-backgrounds-extras gnome-online-accounts gnome-firmware gnome-sharp* ;
-     echo '-----------------------------------------------------------------';
-     echo '-----------------------------------------------------------------';
-     echo '------------    Installing Themes Packages, Libs, Tools'
-     echo '-----------------------------------------------------------------';
-     sudo dnf install -y --best paper-icon-theme papirus-icon-theme pop-icon-theme la-capitaine-cursor-theme sweet-gtk-theme deepin-sound-theme \
-     	oxygen-cursor-themes xcb-util-cursor lumina-icons levien-inconsolata-fonts arc-theme breeze-cursor-theme gnome-packagekit* \
-     	comic* intel-clear-sans-fonts msimonson-anonymouspro-fonts fira-code-fonts thai-scalable-tlwgmono-fonts thai-arundina-sans-mono-fonts \
-     	redhat-mono-fonts polarsys-b612-mono-fonts texlive-gofonts texlive-inconsolata texlive-typewriter google-roboto-mono-fonts \
-     	jetbrains-mono-fonts-all oflb-smonohand-fonts mozilla-fira-mono-fonts liberation-mono-fonts bitstream-vera-sans-mono-fonts google-go-mono-fonts;
-     echo '-----------------------------------------------------------------';
-     echo '-----------------------------------------------------------------';
-     echo '------------    Installing Vim Tools'
-     echo '-----------------------------------------------------------------';
-     sudo dnf install -y --best vim-syntastic-tex* vim-syntastic-vim vim-trailing-whitespace vim-syntastic-yaml vim-syntastic-perl* \
-     	vim-syntastic-ocaml vim-syntastic-sh vim-syntastic-json vim-syntastic vim-syntastic-asciidoc vim-syntastic-ansible vim-perl-support \
-     	vim-powerline vim-merlin vim-editorconfig vim-command-t vim-gtk-syntax vim-devicons vim-X11 vim-airline vim-ctrlp vim-mediawiki;
-     echo '-----------------------------------------------------------------';
-     echo '-----------------------------------------------------------------';
-     echo '------------    Installing Intel Packages Libs Tools'
-     echo '-----------------------------------------------------------------';
-     sudo dnf install -y --best intelhex intel-igc intel-cm-compiler intel-cm-compiler-libs intel-mediasdk intel-mediasdk-devel intel-cmt-cat;
+          install_gnome_packages;
      echo '-----------------------------------------------------------------';
      echo '-----------------------------------------------------------------';
      echo '------------   Enable TLP and other services';
@@ -93,8 +75,10 @@ else
      echo '-----------------------------------------------------------------';
      
 fi
-echo "================================================";
-echo "================================================";
+echo "------------------------------------------------------------------------------------------";
+echo "-----    Installing Additional Nvidia Packages and Libs";
+echo "------------------------------------------------------------------------------------------";
+sudo dnf install -y --best intelhex intel-igc intel-cm-compiler intel-cm-compiler-libs intel-mediasdk intel-mediasdk-devel intel-cmt-cat;
 echo "------------------------------------------------------------------------------------------";
 echo "-----    Installing Additional Nvidia Packages and Libs";
 echo "------------------------------------------------------------------------------------------";
@@ -104,11 +88,6 @@ sudo dnf install -y --best libglvnd-opengl libglvnd-devel libglvnd-glx nv-codec-
 echo '-----------------------------------------------------------------';
 echo '-----------------------------------------------------------------';
 echo "------------------------------------------------------------------------------------------";
-echo "";
-echo "-----------------------------------------------------------------------------------------------------------------------";
-echo "---- Installing Openai";
-pip install openai; 
-echo "-----------------------------------------------------------------------------------------------------------------------";
 echo "";
 echo "-----------------------------------------------------------------------------------------------------------------------";
 sudo systemctl enable --now docker;
@@ -140,4 +119,15 @@ echo "--------------------------------------------------------------------------
 sudo dnf install -y google-cloud-cli;
 echo "-----------------------------------------------------------------------------------------------------------------------";
 echo "-----------------------------------------------------------------------------------------------------------------------";
-echo "-----------------------    REBOOT Your SYSTEM";
+echo "-----------------------    Updating Python Pip";
+pip install --upgrade pip;
+echo "-----------------------------------------------------------------------------------------------------------------------";
+echo "-----------------------    Updating NPM Packages";
+npm install --upgrade
+npm update;
+echo "-----------------------------------------------------------------------------------------------------------------------";
+echo "---- Installing Openai";
+pip install openai; 
+echo "-----------------------------------------------------------------------------------------------------------------------";
+git config --global user.name=AndrewsLAOFRance;
+git config --global user.email="strelec8.2.1.lao@gmail.com";

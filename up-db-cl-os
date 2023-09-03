@@ -1,0 +1,6 @@
+#!/bin/bash
+
+os-up;
+db-up;
+cl-up-os;
+
