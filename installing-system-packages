@@ -123,11 +123,11 @@ echo "-----------------------    Updating Python Pip";
 pip install --upgrade pip;
 echo "-----------------------------------------------------------------------------------------------------------------------";
 echo "-----------------------    Updating NPM Packages";
-npm install --upgrade
-npm update;
+npm install --upgrade npm;
 echo "-----------------------------------------------------------------------------------------------------------------------";
 echo "---- Installing Openai";
-pip install openai; 
+pip install openai;
+pip3 install awxkit sphinx sphinxcontrib-autoprogram;
 echo "-----------------------------------------------------------------------------------------------------------------------";
 git config --global user.name="AndrewsLAOFRance";
 git config --global user.email="strelec8.2.1.lao@gmail.com";
